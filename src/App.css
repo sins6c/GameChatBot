@@ -1,0 +1,392 @@
+/* General Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+
+  /* Background Settings */
+  background: url('assets/galaxyNecrodemic.png') no-repeat center center fixed; /* Background image */
+  background-size:cover;
+  filter: blur(-60px);
+}
+
+
+.App {
+  text-align: center;
+  height: 100vh;
+}
+
+/* Main Header */
+.main-header {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.main-header h1 {
+  font-size: 3rem;
+  color:white;
+}
+
+.main-header p {
+  font-size: 1.2rem;
+  color: whitesmoke;
+}
+
+/* Chat Trigger Button */
+.chat-trigger {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(90deg, #6f44c0, #79163a);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: white;
+  transition: transform 0.4s ease;
+}
+
+.chat-trigger:hover {
+  transform: scale(1.1);
+}
+
+/* Chat Popup */
+/* Chat Popup */
+.chat-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 360px;
+  background: rgba(0, 0, 0, 0.7); /* Glassmorphism effect */
+  backdrop-filter: blur(10px); /* Blur effect for glass style */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for depth */
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: fadeInScale 0.5s ease-out;
+  z-index: 1000;
+}
+
+/* Header Section */
+.chat-header {
+  background: linear-gradient(135deg, #7a0e1c, #3a1065);  /* Bright gradient */
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.chat-header .close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.chat-header .close-btn:hover {
+  color: #ff5252;
+  transform: scale(1.2);
+}
+
+/* Messages Section */
+.messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05); /* Subtle translucent background */
+  scrollbar-width: thin;
+  scrollbar-color: #6a11cb transparent;
+}
+
+.messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background: #6a11cb;
+  border-radius: 5px;
+}
+
+/* .message {
+  padding: 10px 15px;
+  max-width: 80%;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  word-wrap: break-word;
+  animation: fadeIn 0.3s ease-in-out;
+} */
+ /* Messages Container */
+.messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto; /* Enables vertical scrolling */
+  max-height: 300px; /* Fixed height to make the container scrollable */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.6); /* Slightly translucent background */
+  border-radius: 10px; /* Rounded corners for the messages area */
+  scrollbar-width: thin; /* For Firefox: thin scrollbar */
+  scrollbar-color: #6a11cb transparent; /* Custom scrollbar color */
+}
+
+/* Custom Scrollbar for Webkit Browsers */
+.messages::-webkit-scrollbar {
+  width: 8px; /* Narrow scrollbar */
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background: #6a11cb; /* Bright scrollbar thumb */
+  border-radius: 5px; /* Rounded scrollbar */
+}
+
+.messages::-webkit-scrollbar-track {
+  background: transparent; /* Transparent scrollbar track */
+}
+
+/* Individual Messages */
+.message {
+  padding: 10px 15px; /* Space inside each message */
+  max-width: 80%; /* Limits the width of the message */
+  border-radius: 12px; /* Rounded corners for messages */
+  font-size: 0.9rem; /* Font size for readability */
+  word-wrap: break-word; /* Ensures text wraps within the bubble */
+  animation: fadeIn 0.3s ease-in-out; /* Smooth fade-in effect */
+}
+
+/* Bot Messages */
+.chatbot-message {
+  background: linear-gradient(135deg, #4623d0, #ff7eb3); /* Gradient for bot messages */
+  color: white;
+  align-self: flex-start; /* Align to the left */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* User Messages */
+.user-message {
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient for user messages */
+  color: white;
+  align-self: flex-end; /* Align to the right */
+  text-align: right;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+.message.chatbot-message {
+  background: #6c215e; /* Bot gradient */
+  color: white;
+  align-self: flex-start;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.message.user-message {
+  background: #3f4e6f; /* User gradient */
+  color: white;
+  align-self: flex-end;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Input Section */
+.input-container {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  background: rgba(0, 0, 0, 0.7); /* Matches the popup's glass style */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.input-container input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-container input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.input-container input:focus {
+  border-color: #6a11cb;
+  box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+}
+
+.input-container button {
+  padding: 10px 20px;
+  background: #fd4872; /* Bright gradient */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.input-container button:hover {
+  background: #3f4e6f;
+  transform: scale(1.1); /* Subtle zoom */
+}
+
+/* Animations */
+@keyframes fadeInScale {
+  from {
+      opacity: 0;
+      transform: scale(0.9);
+  }
+  to {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+
+
+
+/* corousel */
+.carousel-container {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.carousel-slide {
+  position: relative;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: .7;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+}
+
+.button-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.primary-btn, .secondary-btn {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.primary-btn {
+  background-color:  #5154a9; /* Change to desired background color */
+  color: white; /* Text color */
+  padding: 12px 24px; /* Adjust padding for size */
+  font-size: 16px; /* Adjust font size */
+  border: none; /* Remove border */
+  border-radius: 8px; /* Add rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: all 0.3s ease; /* Smooth hover effect */
+  /* text-transform: uppercase;  */
+}
+
+.primary-btn:hover {
+  background-color: #7863c6; /* Slightly darker green on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+.secondary-btn:hover{
+  background-color: #7863c6; /* Slightly darker green on hover */
+  
+}
+
+.secondary-btn {
+  padding: 10px 20px;
+  margin: 10px;
+  border: 2px solid white; /* White border */
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2); /* Transparent white background */
+  backdrop-filter: blur(10px); /* Blurring effect behind the button */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional: adds a subtle shadow for depth */
+}
+
+/* Hover effect */
+.secondary-btn a{
+  text-decoration: none;
+  color: white;
+}
+.primary-btn a{
+  text-decoration: none;
+  color: white;
+}
